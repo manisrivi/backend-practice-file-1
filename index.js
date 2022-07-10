@@ -21,6 +21,7 @@ const app = express();
 
     // routes
     app.get("/", (req, res) => res.send("Welcome to World"));
+    app.use('/auth', routes.authRoutes);
     app.use("/users", routes.userRoutes);
     app.use("/posts", routes.postRoutes);
     // app.use("/comments", routes.commentRoutes);
