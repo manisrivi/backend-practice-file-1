@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors  = require("cors");
 
 const mongo = require("./shared/mongo");
 const routes = require("./routes/index");
@@ -14,6 +15,7 @@ const app = express();
     await mongo.connect();
 
     // middleware
+    app.use(cors());
     app.use(express.json());
     app.use(middleware.logging);
     app.use(middleware.maintenance);
